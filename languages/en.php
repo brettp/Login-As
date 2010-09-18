@@ -9,7 +9,7 @@ $en = array(
 
 	'login_as:return_to_user' => 'Logout as %s',
 
-	'login_as:unknown_user_guid' => 'Unknown user. Could not login.',
+	'login_as:unknown_user' => 'Unknown user. Could not login.',
 	'login_as:could_not_login_as_user' => 'Could not login as %s',
 );
 

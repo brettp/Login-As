@@ -13,7 +13,7 @@ if (!$original_user_guid || (!$original_user = get_entity($original_user_guid)))
 $logged_in_user = get_loggedin_user();
 
 $text = sprintf(elgg_echo('login_as:return_to_user'), $logged_in_user->username, $original_user->username);
-$url = elgg_add_action_tokens_to_url($vars['url'] . '/action/logout?return=1');
+$url = elgg_add_action_tokens_to_url($vars['url'] . '/action/logout_as');
 
 ?>
 <span class="login_as_return">

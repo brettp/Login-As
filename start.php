@@ -18,7 +18,5 @@ function login_as_init() {
 
 	$action_path = dirname(__FILE__) . '/actions/';
 	register_action('login_as', FALSE, $action_path . 'login_as.php', TRUE);
-
-	// override the logout action to allow us to logout to the original user.
-	register_action('logout', FALSE, $action_path . 'logout.php', FALSE);
+	register_action('logout_as', FALSE, $action_path . 'logout_as.php', FALSE);
 }
