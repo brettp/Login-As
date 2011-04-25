@@ -15,7 +15,7 @@ if (!$user = get_entity($user_guid)) {
 }
 
 // store the original persistent login state to restore on logout_as.
-$presistent = FALSE;
+$persistent = FALSE;
 if (isset($_COOKIE['elggperm'])) {
 	$code = $_COOKIE['elggperm'];
 	$code = md5($code);
