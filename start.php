@@ -30,6 +30,12 @@ function login_as_init() {
  */
 function login_as_user_hover_menu($hook, $type, $menu, $params) {
 	$user = $params['entity'];
+	$logged_in_user = elgg_get_logged_in_user_entity();
+
+	// Don't show menu on self.
+	if ($logged_in_user == $user) {
+		return $menu;
+	}
 
 	$url = "action/login_as?user_guid=$user->guid";
 	$menu[] = ElggMenuItem::factory(array(
