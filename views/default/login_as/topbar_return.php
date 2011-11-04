@@ -1,23 +1,20 @@
 <?php
 /**
  * A topbar link to return to original user.
+ *
+ * @uses $vars['user_guid'] The GUID of the original user
  */
 
-$original_user_guid = isset($_SESSION['login_as_original_user_guid']) ? $_SESSION['login_as_original_user_guid'] : NULL;
+$original_user_guid = elgg_extract('user_guid', $vars);
+$original_user = get_entity($original_user_guid);
+if ($original_user) {
+	$logged_in_user = elgg_get_logged_in_user_entity();
+	$logged_in_user_icon = $logged_in_user->getIconURL('topbar');
+	$original_user_icon = $original_user->getIconURL('topbar');
 
-// short circuit view if not logged in as someone else.
-if (!$original_user_guid || (!$original_user = get_entity($original_user_guid))) {
-	return;
+	echo <<<HTML
+	<img class="elgg-border-plain" src="$logged_in_user_icon" />
+	<span class="login-as-arrow">&rarr;</span>
+	<img class="elgg-border-plain" src="$original_user_icon" />
+HTML;
 }
-
-$logged_in_user = get_loggedin_user();
-
-$text = sprintf(elgg_echo('login_as:return_to_user'), $logged_in_user->username, $original_user->username);
-$url = elgg_add_action_tokens_to_url($vars['url'] . '/action/logout_as');
-
-?>
-<span class="login_as_return">
-<a title="<?php echo $text; ?>" class="login_as_icon" href="<?php echo $url; ?>"><img class="user_mini_avatar" src="<?php echo $logged_in_user->getIcon('topbar'); ?>" alt="<?php echo $text; ?>" /></a>
-<a title="<?php echo $text; ?>" class="login_as_arrow" href="<?php echo $url; ?>">&rarr;</a>
-<a title="<?php echo $text; ?>" class="login_as_icon" href="<?php echo $url; ?>"><img class="user_mini_avatar" src="<?php echo $original_user->getIcon('topbar'); ?>" alt="<?php echo $text; ?>" /></a>
-</span>
