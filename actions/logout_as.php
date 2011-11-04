@@ -14,9 +14,9 @@ if (!$user instanceof ElggUser || !$user->isadmin()) {
 	if (login($user, $persistent)) {
 		unset($_SESSION['login_as_original_user_guid']);
 		unset($_SESSION['login_as_original_persistent']);
-		system_message(sprintf(elgg_echo('login_as:logged_in_as_user'), $user->username));
+		system_message(elgg_echo('login_as:logged_in_as_user', array($user->username)));
 	} else {
-		register_error(sprintf(elgg_echo('login_as:could_not_login_as_user'), $user->username));
+		register_error(elgg_echo('login_as:could_not_login_as_user', array($user->username)));
 	}
 }
 

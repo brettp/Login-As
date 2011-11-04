@@ -27,9 +27,9 @@ if (isset($_COOKIE['elggperm'])) {
 if (login($user)) {
 	$_SESSION['login_as_original_user_guid'] = $original_user_guid;
 	$_SESSION['login_as_original_persistent'] = $persistent;
-	system_message(sprintf(elgg_echo('login_as:logged_in_as_user'), $user->username));
+	system_message(elgg_echo('login_as:logged_in_as_user', array($user->username)));
 } else {
-	register_error(sprintf(elgg_echo('login_as:could_not_login_as_user'), $user->username));
+	register_error(elgg_echo('login_as:could_not_login_as_user', array($user->username)));
 }
 
 forward(REFERER);
