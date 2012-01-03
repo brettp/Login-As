@@ -6,7 +6,7 @@
  */
 
 $user_guid = get_input('user_guid', 0);
-$original_user = get_loggedin_user();
+$original_user = elgg_get_logged_in_user_entity();
 $original_user_guid = $original_user->guid;
 
 if (!$user = get_entity($user_guid)) {
