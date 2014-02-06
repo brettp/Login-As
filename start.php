@@ -76,7 +76,7 @@ function login_as_add_topbar_link() {
 		'href' => 'action/logout_as',
 		'is_action' => true,
 		'title' => $title,
-		'class' => 'login-as-topbar',
+		'link_class' => 'login-as-topbar',
 		'priority' => 700,
 	));
 }
