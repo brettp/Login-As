@@ -34,6 +34,12 @@ try {
 	unset($_SESSION['login_as_original_user_guid']);
 	unset($_SESSION['login_as_original_persistent']);
 	register_error(elgg_echo('login_as:could_not_login_as_user', array($user->username)));
+	
+	try {
+		login($original_user);
+	} catch (Exception $ex) {
+		// we can't log back in as ourselves?  just leave us logged out then...
+	}
 }
 
 forward(REFERER);
