@@ -4,6 +4,7 @@
 	<author>Brett Profitt</author>
 	<version>1.4</version>
 	<category>admin</category>
+	<category>bundled</category>
 	<description>Allows admin users to login as another user.</description>
 	<website>http://www.elgg.org/</website>
 	<copyright>(C) Brett Profitt 2010-2011</copyright>
